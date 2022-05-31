@@ -1,4 +1,40 @@
-<hello name="{{ name }}"></hello>
-<p>
-  Start editing to see some magic happen :)
-</p>
+<button (click)="start()">開始</button>
+<button (click)="pause()">暫停</button>
+<button (click)="stop()">停止</button>
+
+<div class="timer-count">
+  <span>{{ second$ | async | number:'1.2-2' }}</span>
+  <span class="timer-count-unit">秒</span>
+</div>
+
+<button (click)="divide()">分圈</button>
+
+<div class="lap-container">
+
+  <div class="total-laps">
+    <h4>全部分圈</h4>
+    <ul>
+      <li *ngFor="let time of totalLapTimes$ | async; let index = index">
+        第 {{ index + 1 }} 圈：{{ time | number:'1.2-2' }} 秒
+      </li>
+    </ul>
+  </div>
+
+  <div class="odd-laps">
+    <h4>奇數分圈</h4>
+    <ul>
+      <li *ngFor="let time of oddLapTimes$ | async; let index = index">
+        第 {{ index * 2 + 1 }} 圈：{{ time | number:'1.2-2' }} 秒
+      </li>
+    </ul>
+  </div>
+
+  <div class="even-laps">
+    <h4>偶數分圈</h4>
+    <ul>
+      <li *ngFor="let time of evenLapTimes$ | async; let index = index">
+        第 {{ (index + 1) * 2 }} 圈：{{ time | number:'1.2-2' }} 秒
+      </li>
+    </ul>
+  </div>
+</div>

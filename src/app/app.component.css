@@ -1,3 +1,15 @@
-p {
-  font-family: Lato;
+.timer-count {
+  font-size: 48px;
+}
+
+.timer-count-unit {
+  font-size: 12px;
+}
+
+.lap-container {
+  display: flex;
+}
+
+.total-laps, .odd-laps, .even-laps {
+  flex: 1;
 }
